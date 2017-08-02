@@ -1,3 +1,8 @@
+---
+output: 
+  html_document: 
+    keep_md: yes
+---
 Study of the Number of Steps Taken by An Individual
 ====================================================
 
@@ -7,7 +12,7 @@ This document will us data from a personal moitoring device.  The data was colle
 
 The raw data can be found through the following link: [Activity Monitoring Data](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip)
 
-```{r read data, echo=TRUE}
+```{r readdata, echo=TRUE}
 zipurl<-"https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
 temp<-tempfile()
 
@@ -21,7 +26,7 @@ activitydata<-read.csv("./activity.csv/activity.csv",sep=",")
 
 It may be useful to first take a look at the total number of steps an individual takes in a day.
 
-```{r stepsecho=TRUE}
+```{r echo=TRUE}
 
 dailysteps<-aggregate(steps~date,activitydata,sum)
 hist(na.omit(dailysteps$steps),main="Number of Steps Taken by an Individual Each Day(Nas ommitted)",xlab="Number of Steps",col="magenta")
@@ -76,7 +81,7 @@ The histogram for the total number of steps per day is changed by imputing the n
 
 The first bit of code is used to create a column of factors telling if the na value was removed. 
 
-```{r ,results="hide"}
+```{r }
 suppressWarnings(suppressMessages(library(dplyr)))
 
 activitydata["removed"]<-"FALSE"

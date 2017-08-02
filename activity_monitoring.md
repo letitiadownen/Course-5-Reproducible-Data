@@ -130,6 +130,12 @@ activitydata$removed[napositions]<-"TRUE"
 table(activitydata$removed)
 ```
 
+```
+## 
+## FALSE  TRUE 
+## 15264  2304
+```
+
 The histogram showing the data with na's removed is given here using the following code.
 
 
