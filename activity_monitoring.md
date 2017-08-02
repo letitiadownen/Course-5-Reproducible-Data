@@ -27,7 +27,7 @@ dailysteps<-aggregate(steps~date,activitydata,sum)
 hist(na.omit(dailysteps$steps),main="Number of Steps Taken by an Individual Each Day(Nas ommitted)",xlab="Number of Steps",col="magenta")
 ```
 
-![](activity_monitoring_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
+![](unnamed-chunk-1-1.png)<!-- -->
 
 The data appear to be symmetric and we would expect to find that the mean and median are nearly the same.
 
@@ -73,7 +73,7 @@ head(intervalave)
 plot(intervalave,type="l",main="Average Steps per 5 Minute Interval",ylab="Average Steps")
 ```
 
-![](activity_monitoring_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](unnamed-chunk-3-1.png)<!-- -->
 
 The average maximum number of steps took place in the early to middle part of the day as show in the time serie plot above. This value corresponds to the following data:
 
@@ -145,7 +145,7 @@ nadailysteps<-aggregate(steps~removed+date,activitydata,FUN=sum)
 ggplot(nadailysteps,aes(x=steps,fill=removed))+geom_histogram(bins = 10,color="black")+labs(xlab="Total Steps",title="Total Daily Steps with NA values imputed")+scale_fill_manual(values=c("blue","magenta"))
 ```
 
-![](activity_monitoring_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![](unnamed-chunk-7-1.png)<!-- -->
 
 ```r
 mean(nadailysteps$steps)
@@ -188,5 +188,5 @@ newintave<-aggregate(steps~interval+daytype,activitydata,mean)
 ggplot(newintave,aes(x=interval,y=steps,fill=daytype))+facet_grid(daytype~.)+geom_line()+labs(x="Time Interval",y="Average Number of Steps",title="Average Number of Steps by Type of Day")
 ```
 
-![](activity_monitoring_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](unnamed-chunk-8-1.png)<!-- -->
 
